@@ -1,0 +1,20 @@
+
+.navigation{
+ position: absolute;
+ z-index: 1;
+ width:100%;
+ display:flex;
+ justify-content: flex-end;
+ 
+}
+.navigation a{
+ color:#002341;
+ font-size:1.2rem;
+ padding:10px 20px;
+ margin: 20px 20px 0 0;
+
+}
+.login-link{
+ border:2px solid #2d86ae;
+ border-radius: 5px;
+}
