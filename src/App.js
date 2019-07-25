@@ -7,8 +7,10 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <Route path="/" exact component={Home} />
+      <div className="app-container">
+        <Navigation />
+        <Route path="/" exact component={Home} />
+      </div>
     </div>
   );
 }

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import './home.css'
 
 class Home extends Component {
  render() {
   return (
-   <div style={styles}>
+   <div className="landing-page" style={styles}>
     
    </div>
   );
@@ -12,7 +13,6 @@ class Home extends Component {
 
 export default Home;
 const styles= {
- background: 'lightgrey',
- width:'100%',
- height: '800px',
+ 
+
 }
