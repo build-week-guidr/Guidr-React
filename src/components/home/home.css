@@ -1,5 +1,13 @@
 .landing-page{
+ margin:0 auto;
+ max-width:1920px;
+ text-align: center;
+ width:100%;
+ height: 1000px;
+ background-image   : url("../../assets/imgs/guide.jpg");
+ background-position: center;
 
+ background-repeat: no-repeat;
 }
 .logo{
  margin-left:400px;

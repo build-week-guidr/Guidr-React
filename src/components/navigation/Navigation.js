@@ -8,7 +8,7 @@ class Navigation extends Component {
    <div className="navigation">
     <div className="logo"></div>
     <div className="links">
-     <NavLink to="/" activeClassName="selected">Home </NavLink>
+     <NavLink to="/home" activeClassName="selected">Home </NavLink>
      <NavLink to="/login" className="login-link" activeClassName="selected">Login</NavLink>
     </div>
    </div>
