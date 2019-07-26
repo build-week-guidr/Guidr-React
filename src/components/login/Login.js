@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './login.css'
+import axios from 'axios';
 
 class Login extends Component {
  constructor() {
@@ -10,11 +11,26 @@ class Login extends Component {
    password: '',
   
   }
-  
+ 
  }
- submitHandler = e => {
+ 
+ submitHandlerSignIn = e => {
   e.preventDefault()
-
+ 
+ }
+ submitHandlerRegister = e => {
+  e.preventDefault()
+  const {username, password} = this.state
+  const url = "https://lambda-guidr.herokuapp.com/api/auth/register/"
+  axios.post(url,{username,password})
+   .then((response) => {
+    localStorage.setItem('token' ,response.data.payload)
+    console.log(response)
+    this.props.history.push('/home')
+   })
+   .catch((err) => {
+    console.log(err)
+   })
  }
  changeHandler = e => {
   e.preventDefault();
@@ -26,7 +42,7 @@ class Login extends Component {
   return (
    <div className="login-page">
     <div className="login-form-container">
-     <form onSubmit={this.submitHandler} className="login-form">
+     <form className="login-form">
      <input
        className="input"
        type="text"
@@ -42,11 +58,11 @@ class Login extends Component {
        value={this.state.password}
        onChange={this.changeHandler}
        placeholder="Password"
-       name="Password"
+       name="password"
      />
      <br />
-     <button>Register</button>
-     <button>Sign In</button>
+     <button onClick={this.submitHandlerRegister}>Register</button>
+     <button onClick={this.submitHandlerSignIn}>Sign In</button>
      </form>
     </div>
    </div>
