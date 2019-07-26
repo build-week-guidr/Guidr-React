@@ -1,14 +1,17 @@
 
 .navigation{
+ max-width:1920px;
  position: absolute;
  z-index: 1;
  width:100%;
  display:flex;
- justify-content: flex-end;
+ justify-content: space-between;
+ margin:0 auto;
+ 
  
 }
 .navigation a{
- color:#002341;
+ color:white;
  font-size:1.2rem;
  padding:10px 20px;
  margin: 20px 20px 0 0;
@@ -17,4 +20,18 @@
 .login-link{
  border:2px solid #2d86ae;
  border-radius: 5px;
+}
+.logo{
+ height: 50px;
+ width:100px;
+ margin:20px 0 0 20px;
+ 
+ background-image   : url("../../assets/imgs/logoG.png"); 
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.links{
+ display:flex;
+ justify-content: flex-end;
 }
