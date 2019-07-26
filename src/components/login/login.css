@@ -1,0 +1,15 @@
+.login-page{
+ background: rgb(2,0,36);
+ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(54,54,139,1) 0%, rgba(0,212,255,1) 88%);
+ height:1000px;
+}
+.login-form-container{
+ display:flex;
+ justify-content: center;
+ align-items: center;
+ padding:5px;
+}
+.login-form{
+ margin-top:200px;
+ 
+}
