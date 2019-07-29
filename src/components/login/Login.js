@@ -16,15 +16,25 @@ class Login extends Component {
  
  submitHandlerSignIn = e => {
   e.preventDefault()
- 
+  const {username, password} = this.state
+  const url = "https://lambda-guidr.herokuapp.com/api/auth/login"
+  axios.post(url,{username,password})
+   .then((response) => {
+    localStorage.setItem('token' ,response.data.token)
+    console.log(response)
+    this.props.history.push('/home')
+   })
+   .catch((err) => {
+    console.log(err)
+   })
  }
  submitHandlerRegister = e => {
   e.preventDefault()
   const {username, password} = this.state
-  const url = "https://lambda-guidr.herokuapp.com/api/auth/register/"
+  const url = "https://lambda-guidr.herokuapp.com/api/auth/register"
   axios.post(url,{username,password})
    .then((response) => {
-    localStorage.setItem('token' ,response.data.payload)
+    localStorage.setItem('token' ,response.data.token)
     console.log(response)
     this.props.history.push('/home')
    })
