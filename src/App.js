@@ -6,6 +6,7 @@ import Home from './components/home/Home'
 import PrivateRoute from './components/home/PrivateRoute'
 import Navigation from './components/navigation/Navigation'
 import './App.css';
+import Portfolio from './components/portfolio/Portfolio';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <Route exact path="/" component={Landing} />
         <PrivateRoute exact path="/home" component={Home} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/portfolio" component={Portfolio} />
+
       </div>
     </div>
   );

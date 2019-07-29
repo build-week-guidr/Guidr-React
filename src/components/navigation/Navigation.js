@@ -9,6 +9,8 @@ class Navigation extends Component {
     <div className="logo"></div>
     <div className="links">
      <NavLink to="/home" activeClassName="selected">Home </NavLink>
+     <NavLink to="/portfolio" activeClassName="selected">portfolio </NavLink>
+
      <NavLink to="/login" className="login-link" activeClassName="selected">Login</NavLink>
     </div>
    </div>
