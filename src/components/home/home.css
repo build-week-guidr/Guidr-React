@@ -31,3 +31,14 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+.home-container{
+  background: rgb(2,0,36);
+ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgb(21, 14, 131) 0%, rgb(24, 35, 37) 88%);
+ display:flex;
+ justify-content: center
+
+}.home-container h2{
+  margin-top:400px;
+  padding:50px;
+  color:white;
+}

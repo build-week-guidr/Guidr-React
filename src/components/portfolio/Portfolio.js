@@ -26,18 +26,18 @@ class Portfolio extends Component {
       })
       .then(response => {
         const {username, tagline, age, yearsAsGuide, title, name, coverPic,profilePic}  = response.data    
-       
-        this.setState({
-          [username ? username: username]:null,
-          [tagline ? tagline: tagline]:null,
-          [age ? age:age]:null,
-          [yearsAsGuide ? yearsAsGuide: yearsAsGuide]:null,
-          [title ? title:title]:null,
-          [name ? name:name]: null,
-          [coverPic ? coverPic:coverPic]: null,
-          [profilePic ? profilePic:profilePic] : null,
-        })
         
+        this.setState({
+          username:username,
+          tagline: tagline,
+          age:age,
+          yearsAsGuide: yearsAsGuide,
+          title:title,
+          name:name,
+          coverPic:coverPic,
+          profilePic:profilePic,
+        })
+
       })
       .catch(err => {
         console.log(err)
@@ -61,11 +61,11 @@ class Portfolio extends Component {
       title,
       username,
       coverPic,
-      profilePic,
       profilePicUrl,
       name
     } = this.state;
-    this.setState({profilePic:profilePicUrl})
+    
+    const profilePic = profilePicUrl
     axios
       .put(
         url,
