@@ -16,8 +16,9 @@ function App() {
         <Navigation />
         <Route exact path="/" component={Landing} />
         <PrivateRoute exact path="/home" component={Home} />
+        <PrivateRoute exact path="/portfolio" component={Portfolio} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/portfolio" component={Portfolio} />
+        
         
 
       </div>

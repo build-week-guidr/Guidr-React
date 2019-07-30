@@ -14,7 +14,8 @@ class Portfolio extends Component {
       profilePic: "",
       coverPic: "",
       name: "",
-      token: localStorage.getItem("token")
+      token: localStorage.getItem("token"),
+      profilePicUrl:""
     };
   }
   componentDidMount() {
@@ -25,20 +26,21 @@ class Portfolio extends Component {
       })
       .then(response => {
         const {username, tagline, age, yearsAsGuide, title, name, coverPic,profilePic}  = response.data    
+       
         this.setState({
-          username: username,
-          tagline: tagline,
-          age:age,
-          yearsAsGuide: yearsAsGuide,
-          title:title,
-          name:name,
-          coverPic:coverPic,
-          profilePic:profilePic,
+          [username ? username: username]:null,
+          [tagline ? tagline: tagline]:null,
+          [age ? age:age]:null,
+          [yearsAsGuide ? yearsAsGuide: yearsAsGuide]:null,
+          [title ? title:title]:null,
+          [name ? name:name]: null,
+          [coverPic ? coverPic:coverPic]: null,
+          [profilePic ? profilePic:profilePic] : null,
         })
         
       })
       .catch(err => {
-        
+        console.log(err)
       });
   
   }
@@ -60,8 +62,10 @@ class Portfolio extends Component {
       username,
       coverPic,
       profilePic,
+      profilePicUrl,
       name
     } = this.state;
+    this.setState({profilePic:profilePicUrl})
     axios
       .put(
         url,
@@ -135,10 +139,10 @@ class Portfolio extends Component {
             <input
               className="input"
               type="text"
-              value={this.state.profilePic}
+              value={this.state.profilePicUrl}
               onChange={this.changeHandler}
               placeholder="Profile Pic"
-              name="profilePic"
+              name="profilePicUrl"
             />
             <br />
             <input

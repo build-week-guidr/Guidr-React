@@ -4,9 +4,12 @@ import { Route, Redirect } from 'react-router-dom'
 
 export default function(props){
  
- const {component: Component} = props
+  const {
+    component: Component,
+    ...rest
+   } = props
   return (
-  <Route exact path="/home" props={props} render={() =>{
+  <Route exact {...rest} render={() =>{
    const token = localStorage.getItem('token')
     
    return token
