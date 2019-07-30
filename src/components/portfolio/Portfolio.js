@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './portfolio.css'
 import axios from "axios";
 
 class Portfolio extends Component {
@@ -26,10 +27,10 @@ class Portfolio extends Component {
         this.setState({
           username: response.data.username
         });
-        console.log(this.state.username);
+        
       })
       .catch(err => {
-        console.log(err);
+        
       });
   }
   changeHandler = e => {
@@ -41,8 +42,6 @@ class Portfolio extends Component {
 
   portfolioUpdate = e => {
     e.preventDefault();
-    console.log(this.state.username);
-
     const url = "https://lambda-guidr.herokuapp.com/api/auth/update";
     const {
       token,
@@ -70,76 +69,76 @@ class Portfolio extends Component {
         },
         { headers: { authorization: token } }
       )
-
       .then(response => {
         localStorage.setItem("token", response.data.token);
-        console.log(response);
         this.props.history.push("/home");
       })
       .catch(err => {
-        console.log(username);
+        console.log(err);
       });
   };
   render() {
     return (
-      <div style={styles}>
-        <form onSubmit={this.portfolioUpdate} className="details-form">
-          <input
-            className="input"
-            type="text"
-            value={this.state.title}
-            onChange={this.changeHandler}
-            placeholder="Title"
-            name="title"
-          />
-          <br />
-          <input
-            className="input"
-            type="number"
-            value={this.state.age}
-            onChange={this.changeHandler}
-            placeholder="Age"
-            name="age"
-          />
-          <br />
-          <input
-            className="input"
-            type="number"
-            value={this.state.yearsAsGuide}
-            onChange={this.changeHandler}
-            placeholder="Years Experience"
-            name="yearsAsGuide"
-          />
-          <br />
-          <input
-            className="input"
-            type="text"
-            value={this.state.tagline}
-            onChange={this.changeHandler}
-            placeholder="Tagline"
-            name="tagline"
-          />
-          <br />
-          <input
-            className="input"
-            type="text"
-            value={this.state.profilePic}
-            onChange={this.changeHandler}
-            placeholder="Profile Pic"
-            name="profilePic"
-          />
-          <input
-            className="input"
-            type="text"
-            value={this.state.coverPic}
-            onChange={this.changeHandler}
-            placeholder="Cover Picture"
-            name="coverPic"
-          />
-
-          <br />
-          <button type="submit">Save</button>
-        </form>
+      <div className="portfolio-page">
+        <div className="form-container">
+          <form onSubmit={this.portfolioUpdate} className="form">
+            <input
+              className="input"
+              type="text"
+              value={this.state.title}
+              onChange={this.changeHandler}
+              placeholder="Title"
+              name="title"
+            />
+            <br />
+            <input
+              className="input"
+              type="number"
+              value={this.state.age}
+              onChange={this.changeHandler}
+              placeholder="Age"
+              name="age"
+            />
+            <br />
+            <input
+              className="input"
+              type="number"
+              value={this.state.yearsAsGuide}
+              onChange={this.changeHandler}
+              placeholder="Years Experience"
+              name="yearsAsGuide"
+            />
+            <br />
+            <input
+              className="input"
+              type="text"
+              value={this.state.tagline}
+              onChange={this.changeHandler}
+              placeholder="Tagline"
+              name="tagline"
+            />
+            <br />
+            <input
+              className="input"
+              type="text"
+              value={this.state.profilePic}
+              onChange={this.changeHandler}
+              placeholder="Profile Pic"
+              name="profilePic"
+            />
+            <input
+              className="input"
+              type="text"
+              value={this.state.coverPic}
+              onChange={this.changeHandler}
+              placeholder="Cover Picture"
+              name="coverPic"
+            />
+  
+            <br />
+            <button type="submit">Save</button>
+          </form>
+        </div>
       </div>
     );
   }

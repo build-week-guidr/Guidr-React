@@ -9,7 +9,7 @@ class Login extends Component {
    
    username:'',
    password: '',
-  
+   errorMessage: null
   }
  
  }
@@ -21,11 +21,17 @@ class Login extends Component {
   axios.post(url,{username,password})
    .then((response) => {
     localStorage.setItem('token' ,response.data.token)
-    console.log(response)
+    this.setState({
+      errorMessage:null
+    })
     this.props.history.push('/home')
    })
    .catch((err) => {
-    console.log(err)
+   
+    this.setState({
+      errorMessage:err
+    })
+     console.log(this.state.errorMessage)
    })
  }
  submitHandlerRegister = e => {
@@ -35,11 +41,17 @@ class Login extends Component {
   axios.post(url,{username,password})
    .then((response) => {
     localStorage.setItem('token' ,response.data.token)
-    console.log(response)
+    this.setState({
+      errorMessage:null
+    })
     this.props.history.push('/home')
    })
    .catch((err) => {
-    console.log(err)
+   
+    this.setState({
+      errorMessage:err
+    })
+     console.log(this.state.errorMessage)
    })
  }
  changeHandler = e => {
@@ -51,14 +63,16 @@ class Login extends Component {
  render() {
   return (
    <div className="login-page">
-    <div className="login-form-container">
-     <form className="login-form">
+    <div className="form-container">
+   
+     <form className="form"> 
+     {this.state.errorMessage && <p className="error-message">{this.state.errorMessage.response.data.message}</p>}
      <input
        className="input"
        type="text"
        value={this.state.username}
        onChange={this.changeHandler}
-       placeholder="UserName"
+       placeholder="Username"
        name="username"
      />
      <br />
@@ -71,8 +85,10 @@ class Login extends Component {
        name="password"
      />
      <br />
-     <button onClick={this.submitHandlerRegister}>Register</button>
-     <button onClick={this.submitHandlerSignIn}>Sign In</button>
+     <div>
+       <button className="btn" onClick={this.submitHandlerRegister}>Register</button>
+       <button className="btn" onClick={this.submitHandlerSignIn}>Sign In</button>
+     </div>
      </form>
     </div>
    </div>

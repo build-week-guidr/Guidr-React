@@ -5,8 +5,22 @@
  height: 1000px;
  background-image   : url("../../assets/imgs/guide.jpg");
  background-position: center;
-
  background-repeat: no-repeat;
+ position: relative;
+}
+.landing-page::before{
+  content:'';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: .1;
+  left:0;
+  top:0;
+  background-image   : url("../../assets/imgs/nik-shuliahin-rkFIIE9PxH0-unsplash.jpg");
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ z-index: 1;
 }
 .logo{
  margin-left:400px;
