@@ -5,7 +5,7 @@ import Login from './components/login/Login'
 import Home from './components/home/Home'
 import PrivateRoute from './components/home/PrivateRoute'
 import Navigation from './components/navigation/Navigation'
-
+import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 import Portfolio from './components/portfolio/Portfolio';
 

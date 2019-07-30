@@ -87,11 +87,15 @@ class Portfolio extends Component {
   render() {
     return (
       <div className="portfolio-page">
-        <div className="details">
        
-        </div>
         <div className="form-container">
+         
           <form onSubmit={this.submitPortfolio} className="form">
+          <div >
+            { this.state.profilePic
+            ? <img className="profile-pic" src={this.state.profilePic} alt="profile"/>
+            : <i className="fa fa-user fa-5x profile-pic-none"> </i>}
+          </div>
             <input
               className="input"
               type="text"
