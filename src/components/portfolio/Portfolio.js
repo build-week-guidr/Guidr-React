@@ -24,14 +24,23 @@ class Portfolio extends Component {
         headers: { authorization: token }
       })
       .then(response => {
+        const {username, tagline, age, yearsAsGuide, title, name, coverPic,profilePic}  = response.data    
         this.setState({
-          username: response.data.username
-        });
+          username: username,
+          tagline: tagline,
+          age:age,
+          yearsAsGuide: yearsAsGuide,
+          title:title,
+          name:name,
+          coverPic:coverPic,
+          profilePic:profilePic,
+        })
         
       })
       .catch(err => {
         
       });
+  
   }
   changeHandler = e => {
     e.preventDefault();
@@ -39,9 +48,8 @@ class Portfolio extends Component {
       [e.target.name]: e.target.value
     });
   };
-
-  portfolioUpdate = e => {
-    e.preventDefault();
+  submitPortfolio = e => {
+    e.preventDefault();  
     const url = "https://lambda-guidr.herokuapp.com/api/auth/update";
     const {
       token,
@@ -70,8 +78,7 @@ class Portfolio extends Component {
         { headers: { authorization: token } }
       )
       .then(response => {
-        localStorage.setItem("token", response.data.token);
-        this.props.history.push("/home");
+        localStorage.setItem("token", response.data.token);  
       })
       .catch(err => {
         console.log(err);
@@ -80,8 +87,11 @@ class Portfolio extends Component {
   render() {
     return (
       <div className="portfolio-page">
+        <div className="details">
+       
+        </div>
         <div className="form-container">
-          <form onSubmit={this.portfolioUpdate} className="form">
+          <form onSubmit={this.submitPortfolio} className="form">
             <input
               className="input"
               type="text"
@@ -126,6 +136,7 @@ class Portfolio extends Component {
               placeholder="Profile Pic"
               name="profilePic"
             />
+            <br />
             <input
               className="input"
               type="text"
