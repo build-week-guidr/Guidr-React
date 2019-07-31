@@ -23,13 +23,13 @@ class Trips extends Component {
   this.setState({
    tripTypes:response.data
   })
-  console.log(response.data)
+ 
  })
  .catch(err => {
   console.log(err)
 });
  const {token} = this.state
- console.log(token)
+
   axios
   .get("https://lambda-guidr.herokuapp.com/api/user", {
     headers: { authorization: token }
@@ -68,7 +68,7 @@ class Trips extends Component {
     { headers: { authorization: token } }
   )
   .then(response => {
-    console.log(response)  
+   
   })
   .catch(err => {
     console.log(err.response.data.message);

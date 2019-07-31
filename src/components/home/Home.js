@@ -16,6 +16,9 @@ class Home extends Component {
     })
     .then(response => {
      console.log(response)
+     this.setState({
+       trips:response.data.trips
+     })
 
     })
     .catch(err => {
@@ -26,7 +29,14 @@ class Home extends Component {
  render() {
   return (
    <div className="home-container">
-    <h2>This is home. Lists Trips</h2>
+     <h2>Trips</h2>
+     <div className="trips-list">
+     {this.state.trips
+     ? this.state.trips.map((trip, index) =>
+               <p className="trip" key={index}>{trip.title} {trip.shortDescription}-</p>
+              )
+      : null}
+      </div>
    </div>
   );
  }

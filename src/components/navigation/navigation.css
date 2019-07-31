@@ -37,5 +37,41 @@
 .links{
  display:flex;
  justify-content: flex-end;
+ position: relative;
  
+}
+.profile-pic-nav{
+border:2px solid #2d86ae;
+border-radius:50%;
+}
+.profile-pic-nav-none{
+  border:2px solid #2d86ae;
+  border-radius:50%;
+  width:40px;
+  height: 40px;
+  text-align: center;
+  margin-right:50px;
+  padding:5px;
+  font-size:1rem;
+}
+.open{
+  display:flex;
+  flex-direction: column;
+  position: absolute;
+  top:120%;
+  background:rgba(45,134, 174, .6);
+  right:5%;
+  border-radius: 5px;
+  
+  
+}
+.open a{
+  color:black;
+  font-size:1.2rem;
+}
+.open a:hover{
+  background:rgba(86, 201, 255, 0.6)
+}
+.close{
+  display:none;
 }

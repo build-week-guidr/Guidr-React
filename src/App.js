@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Route} from 'react-router-dom'
 import Landing from './components/home/Landing'
 import Login from './components/login/Login'
@@ -10,22 +10,49 @@ import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 import Portfolio from './components/portfolio/Portfolio';
 
-function App() {
+class App extends Component {
+  constructor() {
+   super();
+   this.state = {
+    loggedIn:false,
+    userInfo:{},
+   }
+  }
+  componentDidMount(){
+    if (localStorage.getItem("token")){
+      this.setState({
+        loggedIn:true,
+      })
+    }
+   
+  }
+  isLoggedIn = (val) => {
+    this.setState({
+      loggedIn:val
+    })
+  }
+  getUserInfo = (info) => {
+    this.setState({
+      userInfo:info
+    })
+  }
+  render() {
   return (
     <div className="App">
       <div className="app-container">
-        <Navigation />
+        <Navigation loggedIn={this.state.loggedIn} userInfo={this.state.userInfo}/>
         <Route exact path="/" component={Landing} />
         <PrivateRoute exact path="/home" component={Home} />
-        <PrivateRoute exact path="/portfolio" component={Portfolio} />
-        <PrivateRoute exact path="/trips" component={Trips} />
-        <Route exact path="/login" component={Login} />
+        <PrivateRoute exact path="/portfolio" isLoggedIn={this.isLoggedIn} component={Portfolio} />
+        <PrivateRoute exact path="/trips" isLoggedIn={this.isLoggedIn} component={Trips} />
+        <Route exact path="/login" render={ (props) => <Login {...props} isLoggedIn={this.isLoggedIn} getUserInfo={this.getUserInfo}/>} />
         
         
 
       </div>
     </div>
   );
+}
 }
 
 export default App;
