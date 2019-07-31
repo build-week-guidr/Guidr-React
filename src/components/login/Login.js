@@ -3,16 +3,31 @@ import './login.css'
 import axios from 'axios';
 
 class Login extends Component {
- constructor() {
-  super()
+ constructor(props) {
+  super(props)
   this.state = {
    checkingCreds:false,
    username:'',
    password: '',
-   errorMessage: null
+   errorMessage: null,
+   userInfo:{}
   }
  
  }
+ userInfo = () => {
+  axios
+  .get("https://lambda-guidr.herokuapp.com/api/user", {
+    headers: { authorization: localStorage.getItem("token") }
+  })
+  .then(response => {
+   
+   this.props.getUserInfo(response.data)
+  })
+  .catch(err => {
+    console.log(err)
+  });
+
+}
  
  submitHandlerSignIn = e => {
   e.preventDefault()
@@ -26,6 +41,10 @@ class Login extends Component {
       errorMessage:null,
       checkingCreds:false
     })
+    
+    this.props.isLoggedIn(true)
+    this.userInfo()
+    console.log(response)
     this.props.history.push('/home')
    })
    .catch((err) => {
@@ -49,7 +68,10 @@ class Login extends Component {
       errorMessage:null,
       checkingCreds:false
     })
+    this.userInfo()
+    this.props.isLoggedIn(true)
     this.props.history.push('/home')
+    this.props.isLoggedIn(true)
    })
    .catch((err) => {
    
