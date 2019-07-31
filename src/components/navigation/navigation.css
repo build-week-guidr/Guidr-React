@@ -8,8 +8,8 @@
  justify-content: space-between;
  align-items: center;
  margin:0 auto;
- background:rgba(0, 0, 0, .1)
- 
+ background:rgba(0, 0, 0, .1);
+ padding:5px; 
  
 }
 .navigation a{
@@ -27,7 +27,8 @@
 .logo{
  height: 50px;
  width:100px;
- margin:20px 0 0 20px;
+ margin:0;
+ 
  
  background-image   : url("../../assets/imgs/logo.png"); 
   background-position: center;
@@ -46,7 +47,7 @@ border-radius:50%;
 width:40px;
 height: 40px;
 text-align: center;
-margin-right:50px;
+margin-right:30px;
 
 }
 .profile-pic-nav-none{
@@ -55,7 +56,7 @@ margin-right:50px;
   width:40px;
   height: 40px;
   text-align: center;
-  margin-right:50px;
+  margin-right:30px;
   padding:5px;
 
 }
@@ -66,13 +67,17 @@ margin-right:50px;
   top:120%;
   background:rgba(45,134, 174, .6);
   right:5%;
-  border-radius: 5px;
+  border-radius: 2px;
   
   
 }
 .open a{
-  color:black;
+  color:white;
   font-size:1.2rem;
+  width:100%;
+  padding:5px 15px;
+  margin:0;
+  
 }
 .open a:hover{
   background:rgba(86, 201, 255, 0.6)

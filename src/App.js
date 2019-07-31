@@ -6,6 +6,7 @@ import Home from './components/home/Home'
 import PrivateRoute from './components/home/PrivateRoute'
 import Navigation from './components/navigation/Navigation'
 import Trips from './components/trips/Trips'
+import Footer from './components/footer/Footer'
 import axios from 'axios'
 import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
@@ -60,7 +61,7 @@ class App extends Component {
         <PrivateRoute exact path="/portfolio" isLoggedIn={this.isLoggedIn} component={Portfolio} />
         <PrivateRoute exact path="/trips" isLoggedIn={this.isLoggedIn} component={Trips} />
         <Route exact path="/login" render={ (props) => <Login {...props} isLoggedIn={this.isLoggedIn} getUserInfo={this.getUserInfo}/>} />
-        
+        <Footer />
         
 
       </div>
