@@ -6,7 +6,7 @@ class Login extends Component {
  constructor() {
   super()
   this.state = {
-   
+   checkingCreds:false,
    username:'',
    password: '',
    errorMessage: null
@@ -16,33 +16,38 @@ class Login extends Component {
  
  submitHandlerSignIn = e => {
   e.preventDefault()
+  this.setState({checkingCreds:true})
   const {username, password} = this.state
   const url = "https://lambda-guidr.herokuapp.com/api/auth/login"
   axios.post(url,{username,password})
    .then((response) => {
     localStorage.setItem('token' ,response.data.token)
     this.setState({
-      errorMessage:null
+      errorMessage:null,
+      checkingCreds:false
     })
     this.props.history.push('/home')
    })
    .catch((err) => {
    
     this.setState({
-      errorMessage:err
+      errorMessage:err,
+      checkingCreds:false
     })
      console.log(this.state.errorMessage)
    })
  }
  submitHandlerRegister = e => {
   e.preventDefault()
+  this.setState({checkingCreds:true})
   const {username, password} = this.state
   const url = "https://lambda-guidr.herokuapp.com/api/auth/register"
   axios.post(url,{username,password})
    .then((response) => {
     localStorage.setItem('token' ,response.data.token)
     this.setState({
-      errorMessage:null
+      errorMessage:null,
+      checkingCreds:false
     })
     this.props.history.push('/home')
    })
@@ -66,6 +71,7 @@ class Login extends Component {
     <div className="form-container">
    
      <form className="form"> 
+     {this.state.checkingCreds && <div className="spinner"></div>}
      {this.state.errorMessage && <p className="error-message">{this.state.errorMessage.response.data.message}</p>}
      <input
        className="input"

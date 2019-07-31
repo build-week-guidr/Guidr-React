@@ -5,6 +5,7 @@ import Login from './components/login/Login'
 import Home from './components/home/Home'
 import PrivateRoute from './components/home/PrivateRoute'
 import Navigation from './components/navigation/Navigation'
+import Trips from './components/trips/Trips'
 import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 import Portfolio from './components/portfolio/Portfolio';
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/" component={Landing} />
         <PrivateRoute exact path="/home" component={Home} />
         <PrivateRoute exact path="/portfolio" component={Portfolio} />
+        <PrivateRoute exact path="/trips" component={Trips} />
         <Route exact path="/login" component={Login} />
         
         
