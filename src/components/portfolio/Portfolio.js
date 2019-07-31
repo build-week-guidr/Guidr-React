@@ -64,7 +64,6 @@ class Portfolio extends Component {
       profilePicUrl,
       name
     } = this.state;
-    
     const profilePic = profilePicUrl
     axios
       .put(

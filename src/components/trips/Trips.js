@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import './trips.css'
 class Trips extends Component {
  constructor() {
@@ -10,10 +11,68 @@ class Trips extends Component {
    type:'',
    duration:'',
    date:'',
+   id:'',
+   username:'',
+   tripTypes:[],
+   token: localStorage.getItem("token")
   }
  }
+ componentDidMount(){
+ axios.get("https://lambda-guidr.herokuapp.com/api/trip/list/types")
+ .then(response => {
+  this.setState({
+   tripTypes:response.data
+  })
+  console.log(response.data)
+ })
+ .catch(err => {
+  console.log(err)
+});
+ const {token} = this.state
+ console.log(token)
+  axios
+  .get("https://lambda-guidr.herokuapp.com/api/user", {
+    headers: { authorization: token }
+  })
+  .then(response => {
+    const {username, id}  = response.data   
+    this.setState({
+      username:username,
+      user_id:id,
+    })
+
+  })
+  .catch(err => {
+    console.log(err.response.data.message)
+  });
+
+}
+ 
  submitTrip = e => {
   e.preventDefault()
+  const url = "https://lambda-guidr.herokuapp.com/api/trip"
+  const { title, shortDescription, isProfessional, type, duration, date, token,user_id } = this.state
+  axios
+  .post(
+    url,
+    {
+     user_id,
+     title,
+     shortDescription,
+     isProfessional,
+     type,
+     duration,
+     date,
+     
+    },
+    { headers: { authorization: token } }
+  )
+  .then(response => {
+    console.log(response)  
+  })
+  .catch(err => {
+    console.log(err.response.data.message);
+  });
  }
  changeHandler = e => {
   e.preventDefault();
@@ -81,7 +140,14 @@ class Trips extends Component {
             />
             <br />
             <button>Submit Trip</button>
+            <div className="types">
+             <p className="type-head">Trip Types</p>
+              {this.state.tripTypes.map((type, index) =>
+               <p key={index}>{type.id}-{type.type}</p>
+              )}
+             </div>
             </form>
+           
    </div>
   );
  }
