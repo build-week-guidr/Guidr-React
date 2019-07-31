@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import {NavLink} from 'react-router-dom'
 import './navigation.css'
 
@@ -8,8 +8,20 @@ class Navigation extends Component {
   this.state = {
    profilePic: this.props.userInfo.profilePic,
    shown:false,
-   dropDown:'close'
+   dropDown:'close',
+   loggedIn:this.props.loggedIn
   }
+ }
+
+ componentWillUpdate(nextProps){
+  if(this.state.profilePic !== nextProps.userInfo.profilePic)
+  this.setState({
+   profilePic:this.props.userInfo.profilePic
+  })
+  if (this.state.loggedIn !== nextProps.loggedIn)
+  this.setState({
+   loggedIn:this.props.loggedIn
+  })
  }
  dropDown = () => {
   
@@ -18,7 +30,9 @@ class Navigation extends Component {
   })
   if (this.state.shown){
    this.setState({
-    dropDown:"close"
+    dropDown:"close",
+    profilePic: this.props.userInfo.profilePic,
+
    }) 
   }
   else 
@@ -27,16 +41,15 @@ class Navigation extends Component {
   }) 
  }
  render() {
- 
   return (
    <div className="navigation">
     <div className="logo"></div>
    
     
-     {this.props.loggedIn 
+     {this.state.loggedIn 
      ? <div className="links">
        <div >
-       { this.state.profilePic
+       { this.state.profilePic 
        ? <img onClick={this.dropDown} className="profile-pic-nav" src={this.state.profilePic} alt="profile"/>
        : <i onClick={this.dropDown} className="fa fa-user fa-2x profile-pic-nav-none "> </i>}
         </div>

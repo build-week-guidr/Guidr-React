@@ -6,6 +6,7 @@ import Home from './components/home/Home'
 import PrivateRoute from './components/home/PrivateRoute'
 import Navigation from './components/navigation/Navigation'
 import Trips from './components/trips/Trips'
+import axios from 'axios'
 import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 import Portfolio from './components/portfolio/Portfolio';
@@ -24,8 +25,21 @@ class App extends Component {
         loggedIn:true,
       })
     }
-   
+    axios
+    .get("https://lambda-guidr.herokuapp.com/api/user", {
+      headers: { authorization: localStorage.getItem("token") }
+    })
+    .then(response => {
+     
+     this.setState({userInfo:response.data})
+    })
+    .catch(err => {
+      console.log(err)
+    });
+  
   }
+   
+  
   isLoggedIn = (val) => {
     this.setState({
       loggedIn:val

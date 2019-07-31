@@ -44,6 +44,12 @@ class Portfolio extends Component {
       });
   
   }
+  omponentWillUpdate(nextProps){
+    if(this.state.profilePic !== nextProps.profilePic)
+    this.setState({
+     profilePic:this.props.userInfo.profilePic
+    })
+   }
   changeHandler = e => {
     e.preventDefault();
     this.setState({
@@ -163,7 +169,4 @@ class Portfolio extends Component {
 }
 
 export default Portfolio;
-const styles = {
-  backgroundColor: "black",
-  padding: "200px"
-};
+
