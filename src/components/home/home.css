@@ -5,8 +5,22 @@
  height: 1000px;
  background-image   : url("../../assets/imgs/guide.jpg");
  background-position: center;
-
  background-repeat: no-repeat;
+ position: relative;
+}
+.landing-page::before{
+  content:'';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  opacity: .1;
+  left:0;
+  top:0;
+  background-image   : url("../../assets/imgs/nik-shuliahin-rkFIIE9PxH0-unsplash.jpg");
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+ z-index: 1;
 }
 .logo{
  margin-left:400px;
@@ -16,4 +30,15 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+.home-container{
+  background: rgb(2,0,36);
+ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgb(21, 14, 131) 0%, rgb(24, 35, 37) 88%);
+ display:flex;
+ justify-content: center
+
+}.home-container h2{
+  margin-top:400px;
+  padding:50px;
+  color:white;
 }

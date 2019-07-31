@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './portfolio.css'
 import axios from "axios";
 
 class Portfolio extends Component {
@@ -13,7 +14,8 @@ class Portfolio extends Component {
       profilePic: "",
       coverPic: "",
       name: "",
-      token: localStorage.getItem("token")
+      token: localStorage.getItem("token"),
+      profilePicUrl:""
     };
   }
   componentDidMount() {
@@ -23,14 +25,24 @@ class Portfolio extends Component {
         headers: { authorization: token }
       })
       .then(response => {
+        const {username, tagline, age, yearsAsGuide, title, name, coverPic,profilePic}  = response.data    
+        
         this.setState({
-          username: response.data.username
-        });
-        console.log(this.state.username);
+          username:username,
+          tagline: tagline,
+          age:age,
+          yearsAsGuide: yearsAsGuide,
+          title:title,
+          name:name,
+          coverPic:coverPic,
+          profilePic:profilePic,
+        })
+
       })
       .catch(err => {
-        console.log(err);
+        console.log(err)
       });
+  
   }
   changeHandler = e => {
     e.preventDefault();
@@ -38,11 +50,8 @@ class Portfolio extends Component {
       [e.target.name]: e.target.value
     });
   };
-
-  portfolioUpdate = e => {
-    e.preventDefault();
-    console.log(this.state.username);
-
+  submitPortfolio = e => {
+    e.preventDefault();  
     const url = "https://lambda-guidr.herokuapp.com/api/auth/update";
     const {
       token,
@@ -52,9 +61,10 @@ class Portfolio extends Component {
       title,
       username,
       coverPic,
-      profilePic,
+      profilePicUrl,
       name
     } = this.state;
+    const profilePic = profilePicUrl
     axios
       .put(
         url,
@@ -70,76 +80,83 @@ class Portfolio extends Component {
         },
         { headers: { authorization: token } }
       )
-
       .then(response => {
-        localStorage.setItem("token", response.data.token);
-        console.log(response);
-        this.props.history.push("/home");
+        localStorage.setItem("token", response.data.token);  
       })
       .catch(err => {
-        console.log(username);
+        console.log(err);
       });
   };
   render() {
     return (
-      <div style={styles}>
-        <form onSubmit={this.portfolioUpdate} className="details-form">
-          <input
-            className="input"
-            type="text"
-            value={this.state.title}
-            onChange={this.changeHandler}
-            placeholder="Title"
-            name="title"
-          />
-          <br />
-          <input
-            className="input"
-            type="number"
-            value={this.state.age}
-            onChange={this.changeHandler}
-            placeholder="Age"
-            name="age"
-          />
-          <br />
-          <input
-            className="input"
-            type="number"
-            value={this.state.yearsAsGuide}
-            onChange={this.changeHandler}
-            placeholder="Years Experience"
-            name="yearsAsGuide"
-          />
-          <br />
-          <input
-            className="input"
-            type="text"
-            value={this.state.tagline}
-            onChange={this.changeHandler}
-            placeholder="Tagline"
-            name="tagline"
-          />
-          <br />
-          <input
-            className="input"
-            type="text"
-            value={this.state.profilePic}
-            onChange={this.changeHandler}
-            placeholder="Profile Pic"
-            name="profilePic"
-          />
-          <input
-            className="input"
-            type="text"
-            value={this.state.coverPic}
-            onChange={this.changeHandler}
-            placeholder="Cover Picture"
-            name="coverPic"
-          />
-
-          <br />
-          <button type="submit">Save</button>
-        </form>
+      <div className="portfolio-page">
+       
+        <div className="form-container">
+         
+          <form onSubmit={this.submitPortfolio} className="form">
+          <div >
+            { this.state.profilePic
+            ? <img className="profile-pic" src={this.state.profilePic} alt="profile"/>
+            : <i className="fa fa-user fa-5x profile-pic-none"> </i>}
+          </div>
+            <input
+              className="input"
+              type="text"
+              value={this.state.title}
+              onChange={this.changeHandler}
+              placeholder="Title"
+              name="title"
+            />
+            <br />
+            <input
+              className="input"
+              type="number"
+              value={this.state.age}
+              onChange={this.changeHandler}
+              placeholder="Age"
+              name="age"
+            />
+            <br />
+            <input
+              className="input"
+              type="number"
+              value={this.state.yearsAsGuide}
+              onChange={this.changeHandler}
+              placeholder="Years Experience"
+              name="yearsAsGuide"
+            />
+            <br />
+            <input
+              className="input"
+              type="text"
+              value={this.state.tagline}
+              onChange={this.changeHandler}
+              placeholder="Tagline"
+              name="tagline"
+            />
+            <br />
+            <input
+              className="input"
+              type="text"
+              value={this.state.profilePicUrl}
+              onChange={this.changeHandler}
+              placeholder="Profile Pic"
+              name="profilePicUrl"
+            />
+            <br />
+            <input
+              className="input"
+              type="text"
+              value={this.state.coverPic}
+              onChange={this.changeHandler}
+              placeholder="Cover Picture"
+              name="coverPic"
+            />
+  
+            <br />
+            <button type="submit">Save</button>
+          </form>
+        </div>
       </div>
     );
   }

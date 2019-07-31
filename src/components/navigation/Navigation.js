@@ -8,10 +8,18 @@ class Navigation extends Component {
    <div className="navigation">
     <div className="logo"></div>
     <div className="links">
-     <NavLink to="/home" activeClassName="selected">Home </NavLink>
-     <NavLink to="/portfolio" activeClassName="selected">portfolio </NavLink>
+    
+     {localStorage.getItem("token")
+     ? <div>
+      <NavLink to="/home" activeClassName="selected">Home </NavLink>
+      <NavLink to="/portfolio" activeClassName="selected">Portfolio </NavLink>
+      <NavLink to="/trips" activeClassName="selected">Trips </NavLink>
 
-     <NavLink to="/login" className="login-link" activeClassName="selected">Login</NavLink>
+      </div>
+     : <NavLink to="/login" className="login-link" activeClassName="selected">Login</NavLink> 
+    
+     
+     }
     </div>
    </div>
   );
