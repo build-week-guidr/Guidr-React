@@ -4,10 +4,9 @@
  padding-top:1px;
  display:flex;
  justify-content: center;
+ height: calc(100vh - 50px);
 }
-form{
- margin-bottom:50px;
-}
+
 .types{
  padding:20px;
  color:lightgrey;
@@ -52,6 +51,7 @@ form{
  width:300px;
  border:1px solid white;
  
+ 
 }
 ::placeholder{
  color:lightgrey;
@@ -59,4 +59,18 @@ form{
  text-align: center;
 
  
+}
+.form-update .input{
+ text-align: center;
+ border:none;
+ border-bottom: 2px solid white;
+ background:transparent;
+ color:white;
+ font-size:1.1rem;
+}
+.form-update .input:focus{
+ outline:none;
+}
+@keyframes spinner {
+ to {transform: rotate(360deg);}
 }

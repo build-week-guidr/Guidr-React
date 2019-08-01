@@ -83,6 +83,7 @@ class Trips extends Component {
  render() {
   return (
    <div className="trips-page">
+     <div className="trips-form-container">
      <form onSubmit={this.submitTrip} className="form">
           
             <input
@@ -140,7 +141,7 @@ class Trips extends Component {
             />
             <p className="checkbox">Private/Profesional<br />unchecked Private</p>
             <br />
-            <button>Submit Trip</button>
+            <button className="btn">Submit Trip</button>
             <div className="types">
              <p className="type-head">Trip Types</p>
               {this.state.tripTypes.map((type, index) =>
@@ -148,7 +149,7 @@ class Trips extends Component {
               )}
              </div>
             </form>
-           
+            </div>
    </div>
   );
  }
