@@ -4,15 +4,11 @@ import './home.css'
 class Landing extends Component {
  render() {
   return (
-   <div className="landing-page" style={styles}>
-    
+   <div className="landing-container">
+    <div className="landing-page"></div>
    </div>
   );
  }
 }
 
 export default Landing;
-const styles= {
- 
- 
-}

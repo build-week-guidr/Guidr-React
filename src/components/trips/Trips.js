@@ -14,7 +14,8 @@ class Trips extends Component {
    id:'',
    username:'',
    tripTypes:[],
-   token: localStorage.getItem("token")
+   token: localStorage.getItem("token"),
+   
   }
  }
  componentDidMount(){
@@ -29,7 +30,6 @@ class Trips extends Component {
   console.log(err)
 });
  const {token} = this.state
-
   axios
   .get("https://lambda-guidr.herokuapp.com/api/user", {
     headers: { authorization: token }
@@ -138,6 +138,7 @@ class Trips extends Component {
               placeholder="private"
               name="private"
             />
+            <p className="checkbox">Private/Profesional<br />unchecked Private</p>
             <br />
             <button>Submit Trip</button>
             <div className="types">
