@@ -14,7 +14,8 @@ class Trips extends Component {
    id:'',
    username:'',
    tripTypes:[],
-   token: localStorage.getItem("token")
+   token: localStorage.getItem("token"),
+   
   }
  }
  componentDidMount(){
@@ -29,7 +30,6 @@ class Trips extends Component {
   console.log(err)
 });
  const {token} = this.state
-
   axios
   .get("https://lambda-guidr.herokuapp.com/api/user", {
     headers: { authorization: token }
@@ -83,6 +83,7 @@ class Trips extends Component {
  render() {
   return (
    <div className="trips-page">
+     <div className="trips-form-container">
      <form onSubmit={this.submitTrip} className="form">
           
             <input
@@ -138,8 +139,9 @@ class Trips extends Component {
               placeholder="private"
               name="private"
             />
+            <p className="checkbox">Private/Profesional<br />unchecked Private</p>
             <br />
-            <button>Submit Trip</button>
+            <button className="btn">Submit Trip</button>
             <div className="types">
              <p className="type-head">Trip Types</p>
               {this.state.tripTypes.map((type, index) =>
@@ -147,7 +149,7 @@ class Trips extends Component {
               )}
              </div>
             </form>
-           
+            </div>
    </div>
   );
  }

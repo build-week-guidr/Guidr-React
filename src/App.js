@@ -6,10 +6,12 @@ import Home from './components/home/Home'
 import PrivateRoute from './components/home/PrivateRoute'
 import Navigation from './components/navigation/Navigation'
 import Trips from './components/trips/Trips'
+import Footer from './components/footer/Footer'
 import axios from 'axios'
 import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 import Portfolio from './components/portfolio/Portfolio';
+import TripUpdate from './components/trips/TripUpdate';
 
 class App extends Component {
   constructor() {
@@ -19,6 +21,7 @@ class App extends Component {
     userInfo:{},
    }
   }
+  
   componentDidMount(){
     if (localStorage.getItem("token")){
       this.setState({
@@ -32,6 +35,7 @@ class App extends Component {
     .then(response => {
      
      this.setState({userInfo:response.data})
+     
     })
     .catch(err => {
       console.log(err)
@@ -56,11 +60,13 @@ class App extends Component {
       <div className="app-container">
         <Navigation loggedIn={this.state.loggedIn} userInfo={this.state.userInfo}/>
         <Route exact path="/" component={Landing} />
-        <PrivateRoute exact path="/home" component={Home} />
+        <PrivateRoute exact path="/home"  component={Home} />
         <PrivateRoute exact path="/portfolio" isLoggedIn={this.isLoggedIn} component={Portfolio} />
-        <PrivateRoute exact path="/trips" isLoggedIn={this.isLoggedIn} component={Trips} />
+        <PrivateRoute exact path="/trips" isLoggedIn={this.isLoggedIn} userInfo={this.state.userInfo} component={Trips} />
         <Route exact path="/login" render={ (props) => <Login {...props} isLoggedIn={this.isLoggedIn} getUserInfo={this.getUserInfo}/>} />
+        <Route exact path="/update:id" render={ (props) => <TripUpdate {...props} />} />
         
+        <Footer />
         
 
       </div>

@@ -4,10 +4,9 @@
  padding-top:1px;
  display:flex;
  justify-content: center;
+ height: calc(100vh - 50px);
 }
-form{
- margin-bottom:50px;
-}
+
 .types{
  padding:20px;
  color:lightgrey;
@@ -17,4 +16,61 @@ form{
  text-align:center;
  padding:5px;
  font-size:1.1rem;
+}
+.checkbox{
+ color:white;
+ text-align: center;
+ padding:5px;
+ font-size:1.2rem;
+
+
+}
+.edit-trip-container{
+ background: rgb(2,0,36);
+ background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgb(21, 14, 131) 0%, rgb(24, 35, 37) 88%);
+ height:100vh;
+ width:100%;
+}
+.edit-trip{
+ position: absolute;
+ top:25%;
+ left:25%;
+ width:50%;
+ height: 50%;
+ background:rgb(0, 0, 0);
+ display:flex;
+ justify-content: center;
+ 
+}
+.form-update{
+ margin-top:10px;
+ display:flex;
+ flex-direction: column;
+ align-items: center;
+ padding:50px 50px;
+ width:300px;
+ border:1px solid white;
+ 
+ 
+}
+::placeholder{
+ color:lightgrey;
+ font-size:1.1rem;
+ text-align: center;
+
+ 
+}
+.form-update .input{
+ text-align: center;
+ border:none;
+ border-bottom: 2px solid white;
+ background:transparent;
+ color:white;
+ font-size:1.1rem;
+}
+.form-update .input:focus{
+ outline:none;
+}
+@keyframes spinner {
+ to {transform: rotate(360deg);}
 }
