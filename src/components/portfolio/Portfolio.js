@@ -80,7 +80,6 @@ class Portfolio extends Component {
       .then(response => {
         localStorage.setItem("token", response.data.token);  
         this.props.updateUserInfo()
-        console.log(this.props.userInfo.profilePic)
         this.setState({profilePic:this.props.userInfo.profilePic})
       })
       .catch(err => {
