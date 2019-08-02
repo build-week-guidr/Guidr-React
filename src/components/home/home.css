@@ -108,17 +108,15 @@ text-shadow: 4px 4px 4px #2e2222;
   transition: 0.3s;
   margin: 15px;
   background:white;
-  width:50%;
+  width:70%;
   display:flex;
   justify-content: space-between;
   align-items: center;
 }
 
-@media only screen and (max-width: 600px){
-  .trip{
-    width:90%;
-  }
-  }
+.trip p{
+  width:30%;
+}
 
 .trip *{
   padding:5px;

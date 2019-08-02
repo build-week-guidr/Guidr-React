@@ -64,7 +64,7 @@ axios
       console.log(err.response.data.message)
     });
 }
- render() {
+ render() {console.log(this.state.trips)
   return (
    <div className="home-container">
 
@@ -75,8 +75,10 @@ axios
       
      {this.state.trips
      ? this.state.trips.map((trip, index) =>
+     
                <div className="trip" key={index}>
-               <p>{trip.title} {trip.shortDescription}</p>
+               <p>Title:<br /> {trip.title}</p> <p> Description:<br /> {trip.shortDescription}</p>
+              
                
                <div className="trips-options">
                  <Link to={`/update:${trip.id}`}><button className="btn-update-trip">Update</button></Link>

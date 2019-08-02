@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component, Fragment} from 'react';
 import {NavLink} from 'react-router-dom'
 import './navigation.css'
 
@@ -40,7 +40,7 @@ class Navigation extends Component {
    dropDown:"open"
   }) 
  }
- render() {
+ render() {console.log(this.props.userInfo)
   return (
    <div className="navigation">
     <div className="logo"></div>
@@ -51,10 +51,11 @@ class Navigation extends Component {
        <div >
        { this.state.profilePic 
        ? <img onClick={this.dropDown} className="profile-pic-nav" src={this.state.profilePic} alt="profile"/>
+         
        : <i onClick={this.dropDown} className="fa fa-user fa-2x profile-pic-nav-none "> </i>}
         </div>
         <div className={`${this.state.dropDown}`}>
-         
+         <p style={styles}>{this.props.userInfo.username}</p>
          <NavLink to="/home" activeClassName="selected">Home </NavLink>
          <NavLink to="/portfolio" activeClassName="selected">Portfolio </NavLink>
          <NavLink to="/trips" activeClassName="selected">Trips </NavLink>
@@ -72,3 +73,12 @@ class Navigation extends Component {
 }
 
 export default Navigation;
+const styles={
+  color:'white',
+  fontSize:"1.2rem",
+  padding:"5px",
+  textAlign:"center",
+  borderBottom: "2px solid white",
+  width:"90%",
+  margin:"0 auto",
+}
