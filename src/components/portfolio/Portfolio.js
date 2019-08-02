@@ -79,9 +79,9 @@ class Portfolio extends Component {
       )
       .then(response => {
         localStorage.setItem("token", response.data.token);  
-        this.setState({profilePic:response.profilePic})
-        console.log(this.props)
         this.props.updateUserInfo()
+        console.log(this.props.userInfo.profilePic)
+        this.setState({profilePic:this.props.userInfo.profilePic})
       })
       .catch(err => {
         console.log(err);
@@ -102,7 +102,7 @@ class Portfolio extends Component {
             
           <div >
             { this.state.profilePic
-            ? <img className="profile-pic" src={this.state.profilePic} alt="profile"/>
+            ? <img className="profile-pic" src={this.props.userInfo.profilePic} alt="profile"/>
             : <i className="fa fa-user fa-5x profile-pic-none"> </i>}
           </div>
           <h2>User Profile</h2>

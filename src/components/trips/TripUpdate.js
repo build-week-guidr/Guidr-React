@@ -113,7 +113,7 @@ editTrip = e => {
               name="type"
             />
             <br />
-           <button>Update Trip</button>
+           <button className="btn">Update Trip</button>
           </form>
     </div>
    </div>

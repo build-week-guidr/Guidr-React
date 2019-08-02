@@ -67,8 +67,10 @@ axios
  render() {
   return (
    <div className="home-container">
-     <h2>{this.state.message}</h2>
-     <h2>Trips</h2>
+
+     <h2 className="home-trips-message">{this.state.message}</h2>
+     <h2 className="trips-header">Trips</h2>
+
      <div className="trips-list">
       
      {this.state.trips

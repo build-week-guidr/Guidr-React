@@ -13,7 +13,12 @@
  position: relative;
  padding:5px;
 }
+@media only screen and (max-width: 600px){
+.landing-page{
+  background-position: -850px ;
+}
 
+}
 .landing-page::before{
   content:'';
   position: absolute;
@@ -34,7 +39,7 @@
   clear:both;
   margin-top:200px;
   margin-left:10%;
-  width:30%;
+  width:50%;
   font-size:1.2rem;
   padding:15px;
   color:white;
@@ -45,6 +50,14 @@
 
 .cta p{
 margin: 20px 0;
+text-shadow: 4px 4px 4px #2e2222;
+}
+@media only screen and (max-width: 600px){
+.cta{
+  width:90%;
+  margin:100px auto 50px;
+  
+}
 }
 .landing-logo{
  width:300px;
@@ -64,19 +77,31 @@ margin: 20px 0;
  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgb(21, 14, 131) 0%, rgb(24, 35, 37) 88%);
  display:flex;
  flex-direction: column;
- justify-content: center;
+ justify-content: flex-start;
  text-align: center;
  height: calc(100vh - 50px);
 
-}.home-container h2{
-  margin-top:100px;
-  color:white;
+
+}.home-trips-message{
+  margin-top:80px;
+  color:rgb(199, 9, 9);
+  font-size:1.2rem;
 }
+.trips-header{
+  font-size:1.4rem;
+  color:white;
+  padding:10px;
+
+}
+
+
 .trips-list{
   display:flex;
   flex-direction: column;  
   align-items: center;
+  
 }
+
 .trip{
   padding:5px;
   box-shadow: 0 4px 8px 3px rgba(158, 158, 158, 0.2);
@@ -88,6 +113,13 @@ margin: 20px 0;
   justify-content: space-between;
   align-items: center;
 }
+
+@media only screen and (max-width: 600px){
+  .trip{
+    width:90%;
+  }
+  }
+
 .trip *{
   padding:5px;
   margin:0 10px 0 10px;
@@ -113,3 +145,9 @@ margin: 20px 0;
    align-items: center;
    
  }
+ @media only screen and (max-width: 600px){
+  .trip{
+    width:90%;
+    
+  }
+}

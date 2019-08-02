@@ -4,7 +4,8 @@
  padding-top:1px;
  display:flex;
  justify-content: center;
- height: calc(100vh - 50px);
+ padding-bottom:20px;
+ 
 }
 
 .types{
@@ -28,16 +29,12 @@
 .edit-trip-container{
  background: rgb(2,0,36);
  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgb(21, 14, 131) 0%, rgb(24, 35, 37) 88%);
- height:100vh;
+ padding:5px;
  width:100%;
 }
 .edit-trip{
- position: absolute;
- top:25%;
- left:25%;
- width:50%;
- height: 50%;
- background:rgb(0, 0, 0);
+
+ margin:100px 0 50px;
  display:flex;
  justify-content: center;
  
