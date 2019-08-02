@@ -81,6 +81,7 @@ text-shadow: 4px 4px 4px #2e2222;
  text-align: center;
  height: calc(100vh - 50px);
 
+
 }.home-trips-message{
   margin-top:80px;
   color:rgb(199, 9, 9);
@@ -90,11 +91,15 @@ text-shadow: 4px 4px 4px #2e2222;
   font-size:1.4rem;
   color:white;
   padding:10px;
+
 }
+
+
 .trips-list{
   display:flex;
   flex-direction: column;  
   align-items: center;
+  
 }
 
 .trip{
@@ -108,11 +113,13 @@ text-shadow: 4px 4px 4px #2e2222;
   justify-content: space-between;
   align-items: center;
 }
+
 @media only screen and (max-width: 600px){
   .trip{
     width:90%;
   }
   }
+
 .trip *{
   padding:5px;
   margin:0 10px 0 10px;
@@ -138,3 +145,9 @@ text-shadow: 4px 4px 4px #2e2222;
    align-items: center;
    
  }
+ @media only screen and (max-width: 600px){
+  .trip{
+    width:90%;
+    
+  }
+}
