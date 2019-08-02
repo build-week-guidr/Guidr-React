@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
-import TripUpdate from '../trips/TripUpdate'
+
 import axios from 'axios'
 class Home extends Component {
  constructor(props) {
@@ -12,8 +12,36 @@ class Home extends Component {
  }
  
  componentDidMount() {
-   console.log(this.props)
+   
   const token  = localStorage.getItem("token")
+  axios
+    .get("https://lambda-guidr.herokuapp.com/api/user/trips", {
+      headers: { authorization: token }
+    })
+    .then(response => {
+     
+     this.setState({
+       trips:response.data.trips
+     })
+
+    })
+    .catch(err => {
+      console.log(err.response.data.message)
+    });
+
+}
+
+
+  
+deleteTrip = (id) => {
+console.log("fired")
+const token  = localStorage.getItem("token")
+axios
+    .delete(`https://lambda-guidr.herokuapp.com/api/trip/${id}`, {
+      headers: { authorization: token }
+    })
+    .then((response) => {
+      const token  = localStorage.getItem("token")
   axios
     .get("https://lambda-guidr.herokuapp.com/api/user/trips", {
       headers: { authorization: token }
@@ -28,17 +56,9 @@ class Home extends Component {
     .catch(err => {
       console.log(err.response.data.message)
     });
-console.log(this.state.trips)
-}
-deleteTrip = (id) => {
-console.log("fired")
-const token  = localStorage.getItem("token")
-axios
-    .delete(`https://lambda-guidr.herokuapp.com/api/trip/${id}`, {
-      headers: { authorization: token }
-    })
-    .then((response) => {
+
       this.setState({message:response.data.message})
+
     })
     .catch(err => {
       console.log(err.response.data.message)

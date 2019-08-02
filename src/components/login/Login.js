@@ -76,7 +76,8 @@ class Login extends Component {
    .catch((err) => {
    
     this.setState({
-      errorMessage:err
+      errorMessage:err,
+      checkingCreds:false,
     })
      console.log(this.state.errorMessage)
    })
