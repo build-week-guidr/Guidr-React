@@ -9,11 +9,11 @@ export default function(props){
     ...rest
    } = props
   return (
-  <Route exact {...rest} render={() =>{
+  <Route exact {...rest} render={() =>{ 
    const token = localStorage.getItem('token')
-    
+   
    return token
-          ? <Component /> 
+          ? <Component {...props}/> 
           : <Redirect to="/login" />
   }} />
  

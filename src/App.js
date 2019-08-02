@@ -21,12 +21,13 @@ class App extends Component {
     userInfo:{},
    }
   }
-  
+ 
   componentDidMount(){
     if (localStorage.getItem("token")){
       this.setState({
         loggedIn:true,
       })
+    
     }
     axios
     .get("https://lambda-guidr.herokuapp.com/api/user", {
@@ -43,7 +44,22 @@ class App extends Component {
   
   }
    
+  updateUserInfo= () => {
+    axios
+    .get("https://lambda-guidr.herokuapp.com/api/user", {
+      headers: { authorization: localStorage.getItem("token") }
+    })
+    .then(response => {
+     
+     this.setState({userInfo:response.data})
+     
+    })
+    .catch(err => {
+      console.log(err)
+    });
   
+  
+  }
   isLoggedIn = (val) => {
     this.setState({
       loggedIn:val
@@ -61,7 +77,7 @@ class App extends Component {
         <Navigation loggedIn={this.state.loggedIn} userInfo={this.state.userInfo}/>
         <Route exact path="/" component={Landing} />
         <PrivateRoute exact path="/home"  component={Home} />
-        <PrivateRoute exact path="/portfolio" isLoggedIn={this.isLoggedIn} component={Portfolio} />
+        <PrivateRoute exact path="/portfolio" isLoggedIn={this.isLoggedIn} userInfo={this.state.userInfo} updateUserInfo={this.updateUserInfo} component={Portfolio} />
         <PrivateRoute exact path="/trips" isLoggedIn={this.isLoggedIn} userInfo={this.state.userInfo} component={Trips} />
         <Route exact path="/login" render={ (props) => <Login {...props} isLoggedIn={this.isLoggedIn} getUserInfo={this.getUserInfo}/>} />
         <Route exact path="/update:id" render={ (props) => <TripUpdate {...props} />} />

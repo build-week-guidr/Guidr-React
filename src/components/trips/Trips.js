@@ -15,9 +15,12 @@ class Trips extends Component {
    username:'',
    tripTypes:[],
    token: localStorage.getItem("token"),
+   message:'',
+   checkingCreds:false,
    
   }
  }
+ 
  componentDidMount(){
  axios.get("https://lambda-guidr.herokuapp.com/api/trip/list/types")
  .then(response => {
@@ -50,6 +53,7 @@ class Trips extends Component {
  
  submitTrip = e => {
   e.preventDefault()
+  this.setState({checkingCreds:true})
   const url = "https://lambda-guidr.herokuapp.com/api/trip"
   const { title, shortDescription, isProfessional, type, duration, date, token,user_id } = this.state
   axios
@@ -68,11 +72,15 @@ class Trips extends Component {
     { headers: { authorization: token } }
   )
   .then(response => {
-   
+    console.log(response)
+   this.setState({message: "Success"})
+   this.setState({checkingCreds:false})
   })
   .catch(err => {
-    console.log(err.response.data.message);
+    this.setState({checkingCreds:false})
+     
   });
+ 
  }
  changeHandler = e => {
   e.preventDefault();
@@ -84,6 +92,8 @@ class Trips extends Component {
   return (
    <div className="trips-page">
      <div className="trips-form-container">
+     {this.state.checkingCreds && <div className="spinner"></div>}
+     {this.state.message && <p className="error-message">{this.state.message}</p>}
      <form onSubmit={this.submitTrip} className="form">
           
             <input
