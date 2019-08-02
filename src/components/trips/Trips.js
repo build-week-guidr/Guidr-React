@@ -50,8 +50,7 @@ class Trips extends Component {
   });
 
 }
- 
- submitTrip = e => {
+submitTrip = e => {
   e.preventDefault()
   this.setState({checkingCreds:true})
   const url = "https://lambda-guidr.herokuapp.com/api/trip"
