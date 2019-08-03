@@ -54,7 +54,7 @@ class Navigation extends Component {
          
        : <i onClick={this.dropDown} className="fa fa-user fa-2x profile-pic-nav-none "> </i>}
         </div>
-        <div className={`${this.state.dropDown}`}>
+        <div id="talkbubble" className={`${this.state.dropDown}`}>
          <p style={styles}>{this.props.userInfo.username}</p>
          <NavLink to="/home" activeClassName="selected">Home </NavLink>
          <NavLink to="/portfolio" activeClassName="selected">Portfolio </NavLink>
@@ -74,11 +74,11 @@ class Navigation extends Component {
 
 export default Navigation;
 const styles={
-  color:'white',
+  color:'#2d86ae',
   fontSize:"1.2rem",
   padding:"5px",
   textAlign:"center",
-  borderBottom: "2px solid white",
+  borderBottom: "2px solid #2d86ae",
   width:"90%",
   margin:"0 auto",
 }

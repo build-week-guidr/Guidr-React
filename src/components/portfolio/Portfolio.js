@@ -100,7 +100,7 @@ class Portfolio extends Component {
           <form onSubmit={this.submitPortfolio} className="form">
             
           <div >
-            { this.state.profilePic
+            { this.props.userInfo.profilePic
             ? <img className="profile-pic" src={this.props.userInfo.profilePic} alt="profile"/>
             : <i className="fa fa-user fa-5x profile-pic-none"> </i>}
           </div>
