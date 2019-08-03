@@ -25,6 +25,8 @@ background:rgba(0,0, 0, .2);
 .login-link{
  border:2px solid #2d86ae;
  border-radius: 5px;
+ color:white;
+ padding:5px 10px;
 
 }
 .logo{
