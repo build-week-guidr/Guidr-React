@@ -87,6 +87,7 @@ text-shadow: 4px 4px 4px #2e2222;
  flex-direction: column;
  justify-content: flex-start;
  text-align: center;
+ height: calc(100vh - 30px);
  min-height:650px;
 
 

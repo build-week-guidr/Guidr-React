@@ -91,10 +91,10 @@ submitTrip = e => {
   return (
    <div className="trips-page">
      <div className="trips-form-container">
-     {this.state.checkingCreds && <div className="spinner"></div>}
-     {this.state.message && <p className="error-message">{this.state.message}</p>}
-     <form onSubmit={this.submitTrip} className="form">
-          
+         <form onSubmit={this.submitTrip} className="form">
+         {this.state.checkingCreds && <div className="spinner"></div>}
+         {this.state.message && <p className="error-message">{this.state.message}</p>}
+
             <input
               className="input"
               type="text"
