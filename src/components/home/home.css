@@ -20,9 +20,10 @@
   
 }
 .landing-container{
-  height:900px;
+  
  
 }
+
 
 }
 .landing-page::before{
@@ -66,7 +67,7 @@ text-shadow: 4px 4px 4px #2e2222;
 }
 }
 .landing-logo{
- width:300px;
+ width:50%;
  
 }
 .logo{
