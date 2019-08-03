@@ -16,6 +16,12 @@
 @media only screen and (max-width: 600px){
 .landing-page{
   background-position: -850px ;
+  height: 100%;
+  
+}
+.landing-container{
+  height:700px;
+ 
 }
 
 }
