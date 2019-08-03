@@ -3,3 +3,10 @@
  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgb(21, 14, 131) 0%, rgb(24, 35, 37) 88%);
  height:1000px;
 }
+.login-page .login-cta{
+    color:white;
+    font-size:1.2rem;
+    text-align: center;
+    padding:15px 0;
+    font-weight: 900;
+}

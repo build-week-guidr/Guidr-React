@@ -1,12 +1,13 @@
 .landing-container{
-  height: calc(100vh - 50px);
+  height: calc(100vh - 30px);
   background:rgb(0, 0, 0);
 }
 .landing-page{
 
  text-align: center;
  width:100%;
- height: calc(100vh - 50px);
+ height: calc(100vh - 30px);
+ min-height: 600px;
  background-image   : url("../../assets/imgs/guide.jpg");
  background-position: center;
  background-repeat: no-repeat;
@@ -86,7 +87,7 @@ text-shadow: 4px 4px 4px #2e2222;
  flex-direction: column;
  justify-content: flex-start;
  text-align: center;
- height: calc(100vh - 50px);
+ min-height:650px;
 
 
 }.home-trips-message{
