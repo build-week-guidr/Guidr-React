@@ -8,7 +8,7 @@
  width:100%;
  height: calc(100vh - 30px);
  min-height: 600px;
- background-image   : url("../../assets/imgs/guide.jpg");
+ background-image   : url("../../assets/imgs/guide.webp");
  background-position: center;
  background-repeat: no-repeat;
  position: relative;
@@ -19,10 +19,6 @@
   background-position: -850px ;
   height: 100%;
   
-}
-.landing-container{
-  
- 
 }
 
 
@@ -35,7 +31,7 @@
   opacity: .1;
   left:0;
   top:0;
-  background-image   : url("../../assets/imgs/nik-shuliahin-rkFIIE9PxH0-unsplash.jpg");
+  background-image   : url("../../assets/imgs/nik-shuliahin-rkFIIE9PxH0-unsplash.webp");
  background-position: center;
  background-repeat: no-repeat;
  background-size: cover;
@@ -44,7 +40,6 @@
  
 }
 .cta{
-  clear:both;
   margin-top:80px;
   margin-left:10%;
   width:50%;
@@ -75,7 +70,7 @@ text-shadow: 4px 4px 4px #2e2222;
  margin-left:400px;
  width:400px;
  height: 400px;
- background-image   : url("../../assets/imgs/logoG.png"); 
+ background-image   : url("../../assets/imgs/logoG.webp"); 
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
