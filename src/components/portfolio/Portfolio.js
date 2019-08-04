@@ -15,8 +15,8 @@ class Portfolio extends Component {
       coverPic: "",
       name: "",
       token: localStorage.getItem("token"),
-      profilePicUrl:"",
-      profileInfo:{}
+      profilePicUrl: "",
+      profileInfo: {}
     };
   }
   componentDidMount() {
@@ -27,19 +27,19 @@ class Portfolio extends Component {
       })
       .then(response => {
         this.setState({
-          profileInfo:response.data,
-          username:response.data.username,
-          profilePic:response.data.profilePic
+          profileInfo: response.data,
+          username: response.data.username,
+          profilePic: response.data.profilePic
         })
-        
+
       })
       .catch(err => {
         console.log(err)
       });
-  
+
   }
-  
- 
+
+
   changeHandler = e => {
     e.preventDefault();
     this.setState({
@@ -47,7 +47,7 @@ class Portfolio extends Component {
     });
   };
   submitPortfolio = e => {
-    e.preventDefault();  
+    e.preventDefault();
     const url = "https://lambda-guidr.herokuapp.com/api/auth/update";
     const {
       token,
@@ -77,9 +77,9 @@ class Portfolio extends Component {
         { headers: { authorization: token } }
       )
       .then(response => {
-        localStorage.setItem("token", response.data.token);  
+        localStorage.setItem("token", response.data.token);
         this.props.updateUserInfo()
-        this.setState({profilePic:this.props.userInfo.profilePic})
+        this.setState({ profilePic: this.props.userInfo.profilePic })
       })
       .catch(err => {
         console.log(err);
@@ -88,22 +88,22 @@ class Portfolio extends Component {
   render() {
     return (
       <div className="portfolio-page">
-       <div className="portfolio-profile">
-         <p>User Name: {this.props.userInfo.title}</p>
-         <p>Age: {this.props.userInfo.age}</p>
-         <p>Years of Experience: {this.props.userInfo.yearsAsGuide}</p>
-         <p>Personal Tagline: {this.props.userInfo.tagline}</p>
-       </div>
+        <div className="portfolio-profile">
+          <p>User Name: {this.props.userInfo.title}</p>
+          <p>Age: {this.props.userInfo.age}</p>
+          <p>Years of Experience: {this.props.userInfo.yearsAsGuide}</p>
+          <p>Personal Tagline: {this.props.userInfo.tagline}</p>
+        </div>
         <div className="form-container">
-         
+
           <form onSubmit={this.submitPortfolio} className="form">
-            
-          <div >
-            { this.props.userInfo.profilePic
-            ? <img className="profile-pic" src={this.props.userInfo.profilePic} alt="profile"/>
-            : <i className="fa fa-user fa-5x profile-pic-none"> </i>}
-          </div>
-          <h2>User Profile</h2>
+
+            <div >
+              {this.props.userInfo.profilePic
+                ? <img className="profile-pic" src={this.props.userInfo.profilePic} alt="profile" />
+                : <i className="fa fa-user fa-5x profile-pic-none"> </i>}
+            </div>
+            <h2>User Profile</h2>
             <input
               className="input"
               type="text"
@@ -157,7 +157,7 @@ class Portfolio extends Component {
               placeholder="Cover Picture"
               name="coverPic"
             />
-  
+
             <br />
             <button className="btn" type="submit">Save</button>
           </form>
