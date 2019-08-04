@@ -92,10 +92,10 @@ class Login extends Component {
   return (
    <div className="login-page">
     <div className="form-container">
-   
      <form className="form"> 
      {this.state.checkingCreds && <div className="spinner"></div>}
      {this.state.errorMessage && <p className="error-message">{this.state.errorMessage.response.data.message}</p>}
+     <h2 className="login-cta">Sign In / Register</h2>     
      <input
        className="input"
        type="text"

@@ -1,7 +1,6 @@
 .trips-page{
  background: rgb(2,0,36);
  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgb(21, 14, 131) 0%, rgb(24, 35, 37) 88%);
- padding-top:1px;
  display:flex;
  justify-content: center;
  padding-bottom:20px;
@@ -31,6 +30,8 @@
  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgb(21, 14, 131) 0%, rgb(24, 35, 37) 88%);
  padding:5px;
  width:100%;
+ height: calc(100vh -30px);
+ min-height: 650px;
 }
 .edit-trip{
 
@@ -57,6 +58,9 @@
 
  
 }
+.trips-page form{
+    margin-bottom: 50px;
+} 
 .form-update .input{
  text-align: center;
  border:none;

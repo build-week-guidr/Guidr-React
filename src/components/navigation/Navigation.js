@@ -75,7 +75,7 @@ class Navigation extends Component {
 export default Navigation;
 const styles={
   color:'#2d86ae',
-  fontSize:"1.2rem",
+  fontSize:"1.3rem",
   padding:"5px",
   textAlign:"center",
   borderBottom: "2px solid #2d86ae",

@@ -77,7 +77,7 @@ axios
      ? this.state.trips.map((trip, index) =>
      
                <div className="trip" key={index}>
-               <p>Title:<br /> {trip.title}</p> <p> Description:<br /> {trip.shortDescription}</p>
+               <div style={detailContainer}> <p>Title: {trip.title}</p> <p> Description:<br /> {trip.shortDescription}</p></div>
               
                
                <div className="trips-options">
@@ -94,3 +94,7 @@ axios
 }
 
 export default Home;
+
+const detailContainer = {
+  width:"50%",
+}
