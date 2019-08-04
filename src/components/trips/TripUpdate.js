@@ -75,6 +75,7 @@ editTrip = e => {
               onChange={this.changeHandler}
               placeholder="Trip Name"
               name="title"
+              required
             />
             <br />
            <input
@@ -84,6 +85,7 @@ editTrip = e => {
              onChange={this.changeHandler}
              placeholder="Trip Description"
              name="shortDescription"
+             required
            />
            <br />
            <input
@@ -93,6 +95,7 @@ editTrip = e => {
              onChange={this.changeHandler}
              placeholder="Duration"
              name="duration"
+             required
            />
            <br />
            <input
@@ -102,6 +105,7 @@ editTrip = e => {
              onChange={this.changeHandler}
              placeholder="Date"
              name="date"
+             required
            />
            <br />
            <input
@@ -111,6 +115,7 @@ editTrip = e => {
               onChange={this.changeHandler}
               placeholder="Type"
               name="type"
+              required
             />
             <br />
            <button className="btn">Update Trip</button>
