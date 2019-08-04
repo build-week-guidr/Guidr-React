@@ -102,6 +102,7 @@ submitTrip = e => {
               onChange={this.changeHandler}
               placeholder="Trip Name"
               name="title"
+              required
             />
             <br />
             <input
@@ -120,6 +121,7 @@ submitTrip = e => {
               onChange={this.changeHandler}
               placeholder="Type"
               name="type"
+              required
             />
             <br />
             <input
@@ -129,6 +131,7 @@ submitTrip = e => {
               onChange={this.changeHandler}
               placeholder="Duration"
               name="duration"
+              required
             />
             <br />
             <input
@@ -138,6 +141,7 @@ submitTrip = e => {
               onChange={this.changeHandler}
               placeholder="Date"
               name="date"
+              required
             />
             <br />
             <input
