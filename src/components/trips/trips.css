@@ -58,6 +58,9 @@
 
  
 }
+.trips-page form{
+    margin-bottom: 50px;
+} 
 .form-update .input{
  text-align: center;
  border:none;

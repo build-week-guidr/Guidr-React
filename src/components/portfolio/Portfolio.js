@@ -48,7 +48,6 @@ class Portfolio extends Component {
   };
   submitPortfolio = e => {
     e.preventDefault();  
-    console.log(this.state.username)
     const url = "https://lambda-guidr.herokuapp.com/api/auth/update";
     const {
       token,
