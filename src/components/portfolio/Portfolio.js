@@ -16,7 +16,7 @@ class Portfolio extends Component {
       name: "",
       token: localStorage.getItem("token"),
       profilePicUrl: "",
-      profileInfo: {}
+    
     };
   }
   componentDidMount() {
@@ -27,7 +27,6 @@ class Portfolio extends Component {
       })
       .then(response => {
         this.setState({
-          profileInfo: response.data,
           username: response.data.username,
           profilePic: response.data.profilePic
         })

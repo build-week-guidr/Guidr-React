@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './home.css'
-import logo from '../../assets/imgs/logoG.png'
+import logo from '../../assets/imgs/logoG.webp'
 
 class Landing extends Component {
  render() {
